@@ -17,6 +17,10 @@ const DataFilter = () => {
         fetchData();
     }, []);
 
+    const filteredData = data.filter((item) =>
+        item.toLowerCase().includes(search.toLowerCase())
+    );
+
     return (
         <div>
             <input
@@ -26,7 +30,7 @@ const DataFilter = () => {
                 onChange={(e) => setSearch(e.target.value)}
             />
             <ul>
-                {data.map((item, index) => (
+                {filteredData.map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
             </ul>
