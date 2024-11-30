@@ -17,7 +17,21 @@ const DataFilter = () => {
         fetchData();
     }, []);
 
-    return <div>Data Filter Component</div>;
+    return (
+        <div>
+            <input
+                type="text"
+                placeholder="Search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+            />
+            <ul>
+                {data.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default DataFilter;
